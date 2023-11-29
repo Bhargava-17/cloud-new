@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Details</title>
+    <style>
+        /* Your CSS styles for the person details page */
+    </style>
+</head>
+<body>
+    <h1>Person Details</h1>
+
+    <p id="personDetails">This page would display the details of a person.</p>
+
+    <!-- Return link to the address form -->
+    <a href="index.html">Return to Address Form</a>
+
+    <script>
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Retrieve parameters and display them
+        var name = getUrlParameter('name');
+        var email = getUrlParameter('email');
+        var address = getUrlParameter('address');
+
+        // Display the details
+        var personDetailsElement = document.getElementById('personDetails');
+        personDetailsElement.innerHTML = 'Name: ' + name + '<br>Email: ' + email + '<br>Address: ' + address;
+    </script>
+</body>
+</html>

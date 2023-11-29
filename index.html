@@ -1,0 +1,21 @@
+<!-- Change the form tag in index.html -->
+<form onsubmit="return showPerson();">
+
+<!-- Add a function to set URL parameters and prevent the form submission -->
+<script>
+function showPerson() {
+    // Get the values from the form
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var address = document.getElementById('address').value;
+
+    // Set URL parameters
+    var queryParams = '?name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email) + '&address=' + encodeURIComponent(address);
+
+    // Redirect to the person details page with parameters
+    window.location.href = 'person.html' + queryParams;
+
+    // Prevent the form submission
+    return false;
+}
+</script>
